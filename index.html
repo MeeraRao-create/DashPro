@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=1200" />
+  <title>DashPro</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+</head>
+<body>
+  <aside class="sidebar" id="sidebar">
+    <button class="sidebar-toggle" id="sidebarToggle" title="Toggle sidebar">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="logo"><i class="fa-solid fa-gauge-high"></i> DashPro</div>
+    <nav>
+      <a class="nav-link active"><i class="fa-solid fa-house"></i>Dashboard</a>
+      <a class="nav-link"><i class="fa-solid fa-chart-line"></i>Analytics</a>
+      <a class="nav-link"><i class="fa-solid fa-file-alt"></i>Reports</a>
+      <a class="nav-link"><i class="fa-solid fa-cog"></i>Settings</a>
+    </nav>
+  </aside>
+  <main>
+    <header>
+      <h1>Professional Dashboard</h1>
+      <button class="btn" onclick="alert('Exported!')"><i class="fa-solid fa-download"></i> Export Data</button>
+    </header>
+    <section class="cards">
+      <div class="card">
+        <h3>Total Users</h3>
+        <div class="value">24,500</div>
+        <div class="trend"><i class="fa-solid fa-arrow-up"></i> 3.2% this month</div>
+      </div>
+      <div class="card">
+        <h3>Revenue</h3>
+        <div class="value">$152K</div>
+        <div class="trend"><i class="fa-solid fa-arrow-up"></i> 2.1% this month</div>
+      </div>
+      <div class="card">
+        <h3>Sales</h3>
+        <div class="value">3,800</div>
+        <div class="trend" style="color:#dc2626"><i class="fa-solid fa-arrow-down"></i> 1.1% this month</div>
+      </div>
+      <div class="card">
+        <h3>Sessions</h3>
+        <div class="value">2,400</div>
+        <div class="trend"><i class="fa-solid fa-arrow-up"></i> 0.8% this month</div>
+      </div>
+    </section>
+    <section class="charts-row">
+      <div class="chart-box">
+        <div class="chart-title">User Growth</div>
+        <div id="chart1"></div>
+      </div>
+      <div class="chart-box">
+        <div class="chart-title">Revenue Growth</div>
+        <div id="chart2"></div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
