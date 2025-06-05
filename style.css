@@ -1,0 +1,234 @@
+  :root {
+      --primary: #6366f1;
+      --sidebar-width: 220px;
+      --transition: .22s cubic-bezier(.68,-0.55,.27,1.55);
+      --card-radius: 1rem;
+      --card-shadow: 0 4px 18px rgba(99,102,241,0.09);
+    }
+    body {
+      background: #f3f4f6;
+      font-family: 'Inter', Arial, sans-serif;
+      margin: 0;
+      display: flex;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    .sidebar {
+      width: var(--sidebar-width);
+      background: #fff;
+      box-shadow: 2px 0 16px rgba(99,102,241,0.06);
+      position: fixed;
+      left: 0; top: 0; bottom: 0;
+      display: flex;
+      flex-direction: column;
+      z-index: 100;
+      transition: var(--transition);
+      transform: translateX(0);
+    }
+    .sidebar.closed {
+      transform: translateX(-100%);
+    }
+    .sidebar .logo {
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: var(--primary);
+      padding: 2rem 1rem 1.5rem 1.5rem;
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+    }
+    .sidebar nav {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      padding: 0 1rem;
+    }
+    .nav-link {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      padding: 0.9rem 1rem;
+      border-radius: 0.7rem;
+      color: #6366f1;
+      font-weight: 500;
+      text-decoration: none;
+      transition: background .18s, color .18s;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    .nav-link.active, .nav-link:hover {
+      background: #eef2ff;
+      color: #3730a3;
+    }
+    .sidebar-toggle {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 38px;
+      height: 38px;
+      font-size: 1.2rem;
+      position: absolute;
+      top: 18px;
+      right: -19px;
+      box-shadow: 0 2px 8px rgba(99,102,241,0.14);
+      cursor: pointer;
+      z-index: 200;
+      transition: background .18s, transform .18s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .sidebar-toggle:hover {
+      background: #3730a3;
+      transform: scale(1.1) rotate(-10deg);
+    }
+    main {
+      margin-left: var(--sidebar-width);
+      flex: 1;
+      padding: 2.5rem 2.5rem 2.5rem 2.5rem;
+      transition: margin-left var(--transition);
+      min-width: 0;
+    }
+    .sidebar.closed ~ main {
+      margin-left: 0;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 2.2rem;
+    }
+    header h1 {
+      font-size: 2rem;
+      color: #22223b;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    .cards {
+      display: flex;
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+    .card {
+      background: #fff;
+      border-radius: var(--card-radius);
+      box-shadow: var(--card-shadow);
+      padding: 1.5rem 2rem;
+      min-width: 180px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      transition: transform .18s, box-shadow .18s;
+      position: relative;
+      opacity: 0;
+      animation: fadeInUp .7s forwards;
+    }
+    .card:nth-child(1) { animation-delay: 0.1s; }
+    .card:nth-child(2) { animation-delay: 0.2s; }
+    .card:nth-child(3) { animation-delay: 0.3s; }
+    .card:nth-child(4) { animation-delay: 0.4s; }
+    .card:hover {
+      transform: translateY(-6px) scale(1.03);
+      box-shadow: 0 8px 32px rgba(99,102,241,0.13);
+    }
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(40px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .card h3 {
+      margin: 0 0 0.5rem 0;
+      font-size: 1.12rem;
+      color: #6366f1;
+      font-weight: 600;
+    }
+    .card .value {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #22223b;
+      margin-bottom: 0.5rem;
+    }
+    .card .trend {
+      font-size: 0.95rem;
+      color: #16a34a;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-weight: 500;
+      margin-bottom: 0.2rem;
+    }
+    .charts-row {
+      display: flex;
+      gap: 2.5rem;
+      justify-content: flex-start;
+      align-items: stretch;
+      flex-wrap: wrap;
+    }
+    .chart-box {
+      background: #fff;
+      border-radius: var(--card-radius);
+      box-shadow: var(--card-shadow);
+      padding: 1.5rem 2rem;
+      min-width: 0;
+      flex: 1 1 370px;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      transition: box-shadow .18s;
+      opacity: 0;
+      animation: fadeInUp .7s forwards;
+    }
+    .chart-box:nth-child(1) { animation-delay: 0.15s; }
+    .chart-box:nth-child(2) { animation-delay: 0.25s; }
+    .chart-title {
+      font-size: 1.08rem;
+      color: #6366f1;
+      font-weight: 600;
+      margin-bottom: 0.7rem;
+      letter-spacing: 0.2px;
+      text-align: left;
+    }
+    #chart1, #chart2 {
+      width: 100% !important;
+      min-width: 0;
+      min-height: 0;
+      height: 260px !important;
+      margin: 0 auto;
+      margin-bottom: -10px;
+    }
+    /* Button Animations */
+    .btn {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 0.7rem;
+      padding: 0.7rem 1.4rem;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(99,102,241,0.13);
+      transition: background .18s, transform .18s;
+      margin-left: 1rem;
+    }
+    .btn:hover {
+      background: #3730a3;
+      transform: scale(1.04);
+    }
+    /* Responsive */
+    @media (max-width: 1200px) {
+      .charts-row { flex-direction: column; gap: 1.5rem;}
+      .chart-box { min-width: 0; }
+    }
+    @media (max-width: 900px) {
+      main { padding: 1rem; }
+      .cards { gap: 0.6rem; flex-direction: column;}
+      .chart-box { padding: 1rem;}
+    }
+    @media (max-width: 600px) {
+      .sidebar { width: 170px; }
+      main { padding: 0.5rem; }
+      .charts-row { gap: 1rem; }
+        }
